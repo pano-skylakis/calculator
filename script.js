@@ -50,7 +50,7 @@ function clearAll() {
 
 
 
-function clearTemp(button) {
+function clearTemp() {
   button = event.target.value;
   if (button === 'CE') {
     temp = '';
@@ -60,7 +60,22 @@ function clearTemp(button) {
 
 
 
-function total(button) {
+function total() {
+  let total = 0;
+  button = event.target.value;
+  for (let i = 0; i < entries.length; i++) {
+    if (entries[i] === 'X') {
+      entries[i] = '*';
+    }
+    if (entries[i] === '÷') {
+      entries[i] = '/'
+    }
+  }
+  entries.push(temp);
+  entries = entries.join(' ');
+  total = eval(entries);
+  display.value = total;
+  console.log(total);
 }
 
 
@@ -101,7 +116,6 @@ function storeTemp() {
 //if entries[-1] === button && temp = '' do nothing
 //if entries[-1] != operator && temp = '' then remove entries[-1] && push new operator
 function removeOperator() {
-    debugger;
     button = event.target.value;
     switch (true) {
         case(entries[entries.length-1] === button && temp === ''):

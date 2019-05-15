@@ -1,0 +1,105 @@
+html body{
+    min-height: 100%;
+    width: 100%;
+    display: block;
+    overflow: hidden;
+}
+
+.title {
+    margin-top: 10px;
+}
+
+#display {
+    width: 100%;
+    height: 90px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    background-color: grey;
+    color: black;
+    font-size: 50px;
+    border: none;
+}
+
+.calc {
+    text-align: center;
+    background-color: grey;
+    margin: auto;
+    width: 300px;
+    height: 530px;
+    padding: 20px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.sideControl {
+    color: #F5722B;
+}
+
+.topControl {
+    width: 75px;
+    height: 80px;
+    margin: auto;
+    align-items: center;
+    color: white;
+    background-color: black;
+    box-sizing: border-box;
+    border: solid 1px grey;
+}
+
+.sideControl {
+    width: 75px;
+    height: 80px;
+    margin: auto;
+    align-items: center;
+    color: white;
+    background-color: black;
+    box-sizing: border-box;
+    border: solid 1px grey;
+}
+
+.numButton {
+    width: 75px;
+    height: 80px;
+    margin: auto;
+    align-items: center;
+    color: white;
+    background-color: black;
+    box-sizing: border-box;
+    border: solid 1px grey;
+}
+#equals:hover {
+    background-color: #F5722B;
+}
+#equals {
+    width: 75px;
+    height: 80px;
+    margin: auto;
+    align-items: center;
+    color: white;
+    background-color: black;
+    box-sizing: border-box;
+    border: solid 1px grey;
+}
+
+#zero:hover{
+    background-color: #F5722B;
+}
+#zero {
+    width: 150px;
+    height: 80px;
+    margin: auto;
+    align-items: center;
+    color: white;
+    background-color: black;
+    box-sizing: border-box;
+    border: solid 1px grey;
+}
+
+button:hover {
+    background-color: #F5722B;
+}

@@ -22,18 +22,19 @@ function buttonValue() {
   } else if (button === '=') {
         total();
   } else {
-        storeTemp(button);
+        removeOperator();
   }
 }
 
+
 function makeNum(button) {
   if (button === '.' && temp.includes('.')) {
-    return;
+        return;
   } else if (temp.charAt[0] === '0' && button === '0') {
-    return;
+        return;
   } else {
-      temp += button;
-      display.value = temp;
+        temp += button;
+        display.value = temp;
   }
 }
 
@@ -42,8 +43,8 @@ function makeNum(button) {
 function clearAll() {
   button = event.target.value;
   if (button === 'AC') {
-  entries = [];
-  display.value = (temp = '');
+    entries = [];
+    display.value = (temp = '');
   }
 }
 
@@ -64,13 +65,51 @@ function total(button) {
 
 
 
-// function storeTemp() {
-//     debugger;
-//   button = event.target.value;
-//   switch (true) {
-//       case(button === '+'):
-//       entries.push(temp);
-//       temp = '+ ';
-//       display.value = temp;
-//   }
-// }
+function storeTemp() {
+  button = event.target.value;
+  switch (true) {
+      case(button === '+'):
+        entries.push(temp, '+');
+        temp = '';
+        display.value = temp;
+        break;
+      case(button === '-'):
+        entries.push(temp, '-')
+        temp = '';
+        display.value = temp;
+        break;
+      case(button === 'X'):
+        entries.push(temp, 'X')
+        temp = '';
+        display.value = temp;
+        break;
+      case(button === '%'):
+        entries.push(temp, '%')
+        temp = '';
+        display.value = temp;
+        break;
+      case(button === '÷'):
+        entries.push(temp, '÷')
+        temp = '';
+        display.value = temp;
+        break;
+  }
+}
+
+
+
+//if entries[-1] === button && temp = '' do nothing
+//if entries[-1] != operator && temp = '' then remove entries[-1] && push new operator
+function removeOperator() {
+    debugger;
+    button = event.target.value;
+    switch (true) {
+        case(entries[entries.length-1] === button && temp === ''):
+          return;
+        case(entries[entries.length-1] != button && temp === ''):
+            entries.splice(-1, 1);
+            entries.push(button);
+            break;
+        default: storeTemp();
+    }
+}

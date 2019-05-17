@@ -6,6 +6,8 @@ let display = document.getElementById('display')
 //TO DO
 
 //   -JS-
+// pressing a number(not an operator) after entries is totalled should
+//    --reset calculator.
 // input should only contain X numbers, not infinite
 // % should work correctly (not actually sure)
 // should display 'entries' above 'temp' in smaller font
@@ -51,11 +53,12 @@ function buttonValue() {
   }
 }
 
-
+//when a button is pressed; add to temp and display on calc
+//if first number is 0; do nothing
 function makeNum(button) {
   if (button === '.' && temp.includes('.')) {
         return;
-  } else if (temp.charAt[0] === '0' && button === '0') {
+  } else if (temp.charAt(0) == 0 && button == '0' && temp.charAt(1) != '.') {
         return;
   } else {
         temp += button;
@@ -65,7 +68,7 @@ function makeNum(button) {
   }
 }
 
-
+//reset calculator
 function clearAll() {
     button = event.target.value;
     if (button === 'AC') {
@@ -76,16 +79,17 @@ function clearAll() {
   }
 }
 
+//FUTURE USE CLEAR TEMP
+// function clearTemp() {
+//     button = event.target.value;
+//     if (button === 'CE') {
+//         temp = '';
+//         display.value = temp;
+//   } 
+// }
 
-function clearTemp() {
-    button = event.target.value;
-    if (button === 'CE') {
-        temp = '';
-        display.value = temp;
-  } 
-}
-
-
+//push current temp to entries and join string
+//evaluate entries and display total
 function evaluate() {
     button = event.target.value;
     if (temp != '') {
@@ -103,7 +107,6 @@ function evaluate() {
 
 //if last operator = button input then do nothing
 //if last operator != button then remove and replace last operator
-//if last operator = button and temp is not empty, evaluate
 function removeOperator() {
     button = event.target.value;
     switch (true) {

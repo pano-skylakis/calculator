@@ -20,6 +20,7 @@ let display = document.getElementById('display')
 //  typing '80085' or '8008135' and pressing '=' shoots confetti
 
 // -CSS-
+// remove CE button (confusing unless entries/temp has own display)
 // change input direction from left>right to right<left
 // rounded edges
 // no distinct buttons, only button:hover{color:orange}
@@ -39,14 +40,9 @@ function buttonValue() {
         clearAll();
   } else if (button === '=') {
         if (total === 0) {
-        evaluate();
+        evaluateEntries();
         } else {
-            entries = entries.split(' ');
-            entries = entries.slice(-2);
-            entries.unshift(total);
-            entries = entries.join(' ');
-            total = eval(entries);
-            display.value = total;
+            evaluateFromTotal();
         }
   } else {
         removeOperator();
@@ -80,6 +76,7 @@ function clearAll() {
 }
 
 //FUTURE USE CLEAR TEMP
+//
 // function clearTemp() {
 //     button = event.target.value;
 //     if (button === 'CE') {
@@ -88,9 +85,22 @@ function clearAll() {
 //   } 
 // }
 
+
+function evaluateFromTotal() {
+    if (total === 0) {
+        evaluate();
+        } else {
+            entries = entries.split(' ').slice(-2);
+            entries.unshift(total);
+            entries = entries.join(' ');
+            total = eval(entries);
+            display.value = total;
+        }
+}
+
 //push current temp to entries and join string
 //evaluate entries and display total
-function evaluate() {
+function evaluateEntries() {
     button = event.target.value;
     if (temp != '') {
         entries.push(temp);

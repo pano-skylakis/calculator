@@ -2,6 +2,7 @@ let entries = []
 let temp = ''
 let total = 0
 let display = document.getElementById('display')
+let displayEntries = document.getElementById('displayEntries')
 
 //TO DO
 
@@ -63,7 +64,8 @@ function makeNum(button) {
         temp += button;
   }
   if (temp != '') {
-    display.value = temp;
+    display.value = temp
+    displayEntries.value = entries.join(' ');
   }
 }
 
@@ -85,6 +87,7 @@ function clearAll() {
         total = 0;
         temp = ''
         display.value = temp;
+        displayEntries.value = entries;
   }
 }
 
@@ -123,6 +126,7 @@ function evaluateEntries() {
         total = eval(entries);
     }
     display.value = total;
+    displayEntries.value = entries;
     temp = '';
     console.log(total);
     console.log(temp);

@@ -6,8 +6,7 @@ let display = document.getElementById('display')
 //TO DO
 
 //   -JS-
-// pressing a number(not an operator) after entries is totalled should
-//    --reset calculator.
+// using an operator should work directly from total
 // input should only contain X numbers, not infinite
 // % should work correctly (not actually sure)
 // should display 'entries' above 'temp' in smaller font
@@ -17,7 +16,6 @@ let display = document.getElementById('display')
 //  create functional widget to add to any website
 //  widget pops/stretches calculator up into centre
 //  X sends back to widget
-//  typing '80085' or '8008135' and pressing '=' shoots confetti
 
 // -CSS-
 // remove CE button (confusing unless entries/temp has own display)
@@ -29,6 +27,7 @@ let display = document.getElementById('display')
 // create widget
 
 document.addEventListener('click', buttonValue)
+
 
 function buttonValue() {
   let button = event.target.value
@@ -49,13 +48,17 @@ function buttonValue() {
   }
 }
 
+
 //when a button is pressed; add to temp and display on calc
 //if first number is 0; do nothing
+//if total != 0 then reset
 function makeNum(button) {
   if (button === '.' && temp.includes('.')) {
         return;
   } else if (temp.charAt(0) == 0 && button == '0' && temp.charAt(1) != '.') {
         return;
+  } else if (total != 0) {
+      resetCalc();
   } else {
         temp += button;
   }
@@ -64,7 +67,17 @@ function makeNum(button) {
   }
 }
 
-//reset calculator
+
+//reset calculator after a number is pressed if total != 0
+function resetCalc() {
+    let button = event.target.value;
+    entries = [];
+    total = 0;
+    temp += button;
+}
+
+
+//reset calculator with AC button
 function clearAll() {
     button = event.target.value;
     if (button === 'AC') {
@@ -75,7 +88,8 @@ function clearAll() {
   }
 }
 
-//FUTURE USE CLEAR TEMP
+
+// FUTURE USE CLEAR TEMP
 //
 // function clearTemp() {
 //     button = event.target.value;
@@ -97,6 +111,7 @@ function evaluateFromTotal() {
             display.value = total;
         }
 }
+
 
 //push current temp to entries and join string
 //evaluate entries and display total

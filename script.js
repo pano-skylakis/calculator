@@ -1,17 +1,14 @@
 let entries = []
 let temp = ''
+let total = 0
 let display = document.getElementById('display')
-
 
 //TO DO
 
 //   -JS-
-// pressing '=' multiple times should evaluate using the last operator && number given
-//   eg. 5+5=10 =(5+10) =(5+15)
 // input should only contain X numbers, not infinite
 // % should work correctly (not actually sure)
 // should display 'entries' above 'temp' in smaller font
-// should calculate correctly based on priorities (5+5+(5x5))
 
 // JS STRETCH
 //  add button sounds
@@ -39,7 +36,16 @@ function buttonValue() {
   } else if (button === 'AC') {
         clearAll();
   } else if (button === '=') {
-        replaceOperator();
+        if (total === 0) {
+        evaluate();
+        } else {
+            entries = entries.split(' ');
+            entries = entries.slice(-2);
+            entries.unshift(total);
+            entries = entries.join(' ');
+            total = eval(entries);
+            display.value = total;
+        }
   } else {
         removeOperator();
   }
@@ -53,7 +59,9 @@ function makeNum(button) {
         return;
   } else {
         temp += button;
-        display.value = temp;
+  }
+  if (temp != '') {
+    display.value = temp;
   }
 }
 
@@ -62,7 +70,9 @@ function clearAll() {
     button = event.target.value;
     if (button === 'AC') {
         entries = [];
-        display.value = (temp = '');
+        total = 0;
+        temp = ''
+        display.value = temp;
   }
 }
 
@@ -76,72 +86,24 @@ function clearTemp() {
 }
 
 
-//replace 'X' and '÷' with correct JS operators && evaluate
-function replaceOperator() {
+function evaluate() {
     button = event.target.value;
-    for (let i = 0; i < entries.length; i++) {
-        if (entries[i] === 'X') {
-            entries[i] = '*';
-        }
-        if (entries[i] === '÷') {
-            entries[i] = '/'
-        }
-    }
     if (temp != '') {
         entries.push(temp);
-  }
-  evaluate();
-}
-
-
-function evaluate() {
-    let total = 0; 
-    if (temp = '') {
-        return total += evaluate;
-    } else {
         entries = entries.join(' ');
         total = eval(entries);
     }
     display.value = total;
+    temp = '';
     console.log(total);
+    console.log(temp);
+    console.log(entries);
 }
 
 
-//push temp to entries when operator is pressed
-function storeTemp() {
-  button = event.target.value;
-  switch (true) {
-        case(button === '+'):
-            entries.push(temp, '+');
-            temp = '';
-            display.value = temp;
-            break;
-        case(button === '-'):
-            entries.push(temp, '-')
-            temp = '';
-            display.value = temp;
-            break;
-        case(button === 'X'):
-            entries.push(temp, 'X')
-            temp = '';
-            display.value = temp;
-            break;
-        case(button === '%'):
-            entries.push(temp, '%')
-            temp = '';
-            display.value = temp;
-            break;
-        case(button === '÷'):
-            entries.push(temp, '÷')
-            temp = '';
-            display.value = temp;
-            break;
-    }
-}
-
-
-//if entries[-1] === button && temp = '' do nothing
-//if entries[-1] != operator && temp = '' then remove entries[-1] && push new operator
+//if last operator = button input then do nothing
+//if last operator != button then remove and replace last operator
+//if last operator = button and temp is not empty, evaluate
 function removeOperator() {
     button = event.target.value;
     switch (true) {
@@ -153,4 +115,30 @@ function removeOperator() {
             break;
         default: storeTemp();
     }
+}
+
+
+//push temp to entries when operator is pressed
+//also convert to correct JS operator
+function storeTemp() {
+  button = event.target.value;
+  switch (true) {
+        case(button === '+'):
+            entries.push(temp, '+');
+            break;
+        case(button === '-'):
+            entries.push(temp, '-')
+            break;
+        case(button === 'X'):
+            entries.push(temp, '*')
+            break;
+        case(button === '%'):
+            entries.push(temp, '%')
+            break;
+        case(button === '÷'):
+            entries.push(temp, '/')
+            break;
+    }
+    temp = '';
+    display.value = temp;
 }

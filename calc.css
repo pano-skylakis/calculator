@@ -50,10 +50,6 @@ html body{
     justify-content: center;
 }
 
-.sideControl {
-    color: #F5722B;
-}
-
 .topControl {
     width: 75px;
     height: 80px;
@@ -65,18 +61,7 @@ html body{
     border: solid 1px grey;
 }
 
-.sideControl {
-    width: 75px;
-    height: 80px;
-    margin: auto;
-    align-items: center;
-    color: white;
-    background-color: black;
-    box-sizing: border-box;
-    border: solid 1px grey;
-}
-
-.numButton {
+.button {
     width: 75px;
     height: 80px;
     margin: auto;

@@ -1,8 +1,15 @@
-let entries = []
-let temp = ''
-let total = 0
-let display = document.getElementById('display')
-let displayEntries = document.getElementById('displayEntries')
+let entries = [];
+let temp = '';
+let total = 0;
+let display = document.getElementById('display');
+let displayEntries = document.getElementById('displayEntries');
+
+
+
+let buttons = document.getElementsByClassName('button');
+Array.from(buttons).forEach(function (element) {
+    element.addEventListener('click', buttonValue);
+});
 
 //TO DO
 
@@ -24,7 +31,7 @@ let displayEntries = document.getElementById('displayEntries')
 // find matching font style
 // create widget
 
-document.addEventListener('click', buttonValue)
+// document.addEventListener('click', buttonValue)
 
 
 function buttonValue() {

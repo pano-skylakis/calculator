@@ -1,40 +1,24 @@
+//TO DO
+//   -JS-
+// input should only contain X numbers, not infinite
+// JS STRETCH
+//  create functional widget
+
 let entries = [];
 let temp = '';
 let total = 0;
 let display = document.getElementById('display');
 let displayEntries = document.getElementById('displayEntries');
-
-
+let audio = new Audio("./sounds/clickSound.mp3")
 
 let buttons = document.getElementsByClassName('button');
 Array.from(buttons).forEach(function (element) {
     element.addEventListener('click', buttonValue);
 });
 
-//TO DO
-
-//   -JS-
-// clicks should be confined to calculator buttons only
-// input should only contain X numbers, not infinite
-
-// JS STRETCH
-//  add button sounds
-//  create functional widget to add to any website
-//  widget pops/stretches calculator up into centre
-//  X sends back to widget
-
-// -CSS-
-// remove CE button (confusing unless entries/temp has own display)
-// rounded edges
-// no distinct buttons, only button:hover{color:orange}
-// second input for -entries- (smaller font)
-// find matching font style
-// create widget
-
-// document.addEventListener('click', buttonValue)
-
 
 function buttonValue() {
+    audio.play();
     let button = event.target.value
     if (!isNaN(button) || button === '.') {
         makeNum(button);

@@ -7,10 +7,7 @@ let displayEntries = document.getElementById('displayEntries')
 //TO DO
 
 //   -JS-
-// using an operator should work directly from total
 // input should only contain X numbers, not infinite
-// % should work correctly (not actually sure)
-// should display 'entries' above 'temp' in smaller font
 
 // JS STRETCH
 //  add button sounds
@@ -31,20 +28,25 @@ document.addEventListener('click', buttonValue)
 
 
 function buttonValue() {
-  let button = event.target.value
-  if (!isNaN(button) || button === '.') {
+    let button = event.target.value
+    if (!isNaN(button) || button === '.') {
         makeNum(button);
-  } else if (button === 'CE') {
+    } else if (button === 'CE') {
         clearTemp();
-  } else if (button === 'AC') {
+    } else if (button === 'AC') {
         clearAll();
-  } else if (button === '=') {
+    } else if (button === '=') {
         if (total === 0) {
-        evaluateEntries();
+            evaluateEntries();
         } else {
             evaluateFromTotal();
         }
-  } else {
+    } else if (total != 0) {
+        temp += total;
+        entries = [];
+        total = 0;
+        storeTemp();
+    } else {
         removeOperator();
   }
 }
@@ -104,6 +106,7 @@ function clearAll() {
 
 
 function evaluateFromTotal() {
+    let button = event.target.value
     if (total === 0) {
         evaluate();
         } else {
@@ -112,8 +115,10 @@ function evaluateFromTotal() {
             entries = entries.join(' ');
             total = eval(entries);
             display.value = total;
-        }
+    }
 }
+
+    
 
 
 //push current temp to entries and join string
@@ -128,9 +133,6 @@ function evaluateEntries() {
     display.value = total;
     displayEntries.value = entries;
     temp = '';
-    console.log(total);
-    console.log(temp);
-    console.log(entries);
 }
 
 
@@ -173,4 +175,5 @@ function storeTemp() {
     }
     temp = '';
     display.value = temp;
+    displayEntries.value = entries.join(' ');
 }

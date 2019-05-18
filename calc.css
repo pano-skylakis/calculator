@@ -1,47 +1,64 @@
 html body{
+    font-family: 'Roboto', sans-serif;
     min-height: 100%;
     width: 100%;
     display: block;
     overflow: hidden;
-}
-
-.title {
-    margin-top: 10px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    background-image: linear-gradient(#2D1508, #F5722B)
 }
 
 #displayEntries {
     width: 100%;
-    height: 45px;
+    height: 100%;
     padding: 5px 10px;
-    margin-bottom: 2px;
+    margin-left: 0;
+    margin-bottom: 0;
     box-sizing: border-box;
-    background-color: grey;
-    color: black;
-    font-size: 25px;
-    border: none;
-}
-#display {
-    width: 100%;
-    height: 90px;
-    padding: 5px 10px;
-    margin-bottom: 10px;
-    margin-left: 5px;
-    margin-right: 5px;
-    text-align: right;
-    box-sizing: border-box;
-    background-color: grey;
-    color: black;
-    font-size: 50px;
+    background-color: #11131b;;
+    color: white;
+    font-family: inherit;
+    font-size: 1em;
     border: none;
 }
 
+#display {
+    width: 100%;
+    height: 100px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    margin-left: 0;
+    margin-right: 9px;
+    text-align: right;
+    box-sizing: border-box;
+    background-color: #11131b;
+    color: white;
+    font-family: inherit;
+    font-size: 2.5em;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 0.5px inset #b2b9d4;
+}
+
+::placeholder {
+    color: white;
+    opacity: 1;
+  }
+
 .calc {
     text-align: center;
-    background-color: grey;
+    background-color: #11131b;
     margin: auto;
     width: 300px;
     height: 560px;
-    padding: 20px;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 5%;
+    -webkit-box-shadow: 2px 3px 20px 3px rgba(0,0,0,0.85);
+    -moz-box-shadow: 2px 3px 20px 3px rgba(0,0,0,0.85);
+    box-shadow: 2px 3px 20px 3px rgba(0,0,0,0.85);
 }
 
 .row {
@@ -56,63 +73,90 @@ html body{
     margin: auto;
     align-items: center;
     color: white;
-    background-color: black;
-    box-sizing: border-box;
-    border: solid 1px grey;
 }
 
 .button {
+    font-family: inherit;
+    font-size: 1.5em;
     width: 75px;
     height: 80px;
     margin: auto;
     align-items: center;
     color: white;
-    background-color: black;
+    background-color: #11131b;
     box-sizing: border-box;
-    border: solid 1px grey;
+    border: solid 1px #11131b;
+    border-radius: 10%;
 }
-#equals:hover {
-    background-color: #F5722B;
+#equals:active {
+    border-top: 2px inset #F5722B;
+    border-bottom: 2px inset #F5722B;
+    border-left: 2px inset #F5722B;
+    border-right: 2.5px inset #F5722B;
+    background-color: #171a24;
 }
 #equals {
+    font-family: inherit;
+    font-size: 1.5em;
     width: 75px;
     height: 80px;
     margin: auto;
     align-items: center;
     color: white;
-    background-color: black;
-    box-sizing: border-box;
-    border: solid 1px grey;
 }
 
-#clear:hover {
-    background-color: #F5722B;
+#clear:active {
+    border-top: 2px inset #F5722B;
+    border-bottom: 2px inset #F5722B;
+    border-left: 2px inset #F5722B;
+    border-right: 2.5px inset #F5722B;
+    background-color: #171a24;
 }
 #clear {
+    font-family: inherit;
+    font-size: 1.5em;
     width: 150px;
     height: 80px;
     margin: auto;
     align-items: center;
     color: white;
-    background-color: black;
-    box-sizing: border-box;
-    border: solid 1px grey;
 }
 
-#zero:hover{
-    background-color: #F5722B;
+#zero:active{
+    border-top: 2px inset #F5722B;
+    border-bottom: 2px inset #F5722B;
+    border-left: 2px inset #F5722B;
+    border-right: 2.5px inset #F5722B;
+    background-color: #171a24;
 }
 #zero {
+    font-family: inherit;
+    font-size: 1.5em;
     width: 150px;
     height: 80px;
     margin: auto;
     align-items: center;
     color: white;
-    background-color: black;
-    box-sizing: border-box;
-    border: solid 1px grey;
+}
+
+/* button:hover {
+    border-top: 2px inset #F5722B;
+    border-bottom: 2px inset #F5722B;
+    border-left: 2px inset #F5722B;
+    border-right: 4px inset #F5722B;
+} */
+
+button:active {
+    border-top: 2px inset #F5722B;
+    border-bottom: 2px inset #F5722B;
+    border-left: 2px inset #F5722B;
+    border-right: 2.5px inset #F5722B;
+    background-color: rgb(255, 121, 49);
 }
 
 button:hover {
-    background-color: #F5722B;
+    background-color: #171a24;
 }
+/*note: this is not advisable as it restricts accessibility for
+    people who use keyboard navigation. OK for personal use*/
+button:focus { outline:0 !important; }

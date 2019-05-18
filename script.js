@@ -146,6 +146,10 @@ function removeOperator() {
     switch (true) {
         case(entries[entries.length-1] === button && temp === ''):
             return;
+        case(entries[entries.length-1] === '*' && button === 'X' && temp === ''):
+            return;
+        case(entries[entries.length-1] === '/' && button === '÷' && temp === ''):
+            return;
         case(entries[entries.length-1] != button && temp === ''):
             entries.splice(-1, 1);
             storeTemp();

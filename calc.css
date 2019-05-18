@@ -67,14 +67,6 @@ html body{
     justify-content: center;
 }
 
-.topControl {
-    width: 75px;
-    height: 80px;
-    margin: auto;
-    align-items: center;
-    color: white;
-}
-
 .button {
     font-family: inherit;
     font-size: 1.5em;
@@ -88,6 +80,7 @@ html body{
     border: solid 1px #11131b;
     border-radius: 10%;
 }
+
 #equals:active {
     border-top: 2px inset #F5722B;
     border-bottom: 2px inset #F5722B;
@@ -100,9 +93,6 @@ html body{
     font-size: 1.5em;
     width: 75px;
     height: 80px;
-    margin: auto;
-    align-items: center;
-    color: white;
 }
 
 #clear:active {
@@ -117,9 +107,6 @@ html body{
     font-size: 1.5em;
     width: 150px;
     height: 80px;
-    margin: auto;
-    align-items: center;
-    color: white;
 }
 
 #zero:active{
@@ -134,17 +121,7 @@ html body{
     font-size: 1.5em;
     width: 150px;
     height: 80px;
-    margin: auto;
-    align-items: center;
-    color: white;
 }
-
-/* button:hover {
-    border-top: 2px inset #F5722B;
-    border-bottom: 2px inset #F5722B;
-    border-left: 2px inset #F5722B;
-    border-right: 4px inset #F5722B;
-} */
 
 button:active {
     border-top: 2px inset #F5722B;

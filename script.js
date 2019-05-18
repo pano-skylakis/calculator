@@ -7,6 +7,7 @@ let displayEntries = document.getElementById('displayEntries')
 //TO DO
 
 //   -JS-
+// clicks should be confined to calculator buttons only
 // input should only contain X numbers, not infinite
 
 // JS STRETCH
@@ -105,20 +106,16 @@ function clearAll() {
 // }
 
 
+//pressing '=' with a current total will calculate 
+//with last operator+input
 function evaluateFromTotal() {
     let button = event.target.value
-    if (total === 0) {
-        evaluate();
-        } else {
-            entries = entries.split(' ').slice(-2);
-            entries.unshift(total);
-            entries = entries.join(' ');
-            total = eval(entries);
-            display.value = total;
-    }
+    entries = entries.split(' ').slice(-2);
+    entries.unshift(total);
+    entries = entries.join(' ');
+    total = eval(entries);
+    display.value = total;
 }
-
-    
 
 
 //push current temp to entries and join string
@@ -145,7 +142,7 @@ function removeOperator() {
             return;
         case(entries[entries.length-1] != button && temp === ''):
             entries.splice(-1, 1);
-            entries.push(button);
+            storeTemp();
             break;
         default: storeTemp();
     }

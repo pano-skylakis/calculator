@@ -12,12 +12,12 @@
             <p></p>
         </div>
         <div>
-        <input type='text' disabled='disabled' id='displayEntries'/>
-        <input type='text' disabled='disabled' id='display'/>
+        <input type='text' id='displayEntries' disabled/>
+        <input type='text' pattern="\d*" maxlength='10' placeholder='0' id='display' disabled/>
         </div>
         <div class='row'>
-            <button class='topControl' id='clear' value='AC'>AC</button>
-            <button class='topControl' id='clearEntry' value='CE'>CE</button>
+            <button id='clear' value='AC'>AC</button>
+            <!-- <button class='topControl' id='clearEntry' value='CE'>CE</button> -->
             <button class='topControl' id='remainder' value='%'>%</button>
             <button class='sideControl' id='divide' value='÷'>÷</button>
         </div>

@@ -25,6 +25,9 @@ html body{
     height: 90px;
     padding: 5px 10px;
     margin-bottom: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-align: right;
     box-sizing: border-box;
     background-color: grey;
     color: black;
@@ -37,7 +40,7 @@ html body{
     background-color: grey;
     margin: auto;
     width: 300px;
-    height: 530px;
+    height: 560px;
     padding: 20px;
 }
 
@@ -88,6 +91,20 @@ html body{
 }
 #equals {
     width: 75px;
+    height: 80px;
+    margin: auto;
+    align-items: center;
+    color: white;
+    background-color: black;
+    box-sizing: border-box;
+    border: solid 1px grey;
+}
+
+#clear:hover {
+    background-color: #F5722B;
+}
+#clear {
+    width: 150px;
     height: 80px;
     margin: auto;
     align-items: center;

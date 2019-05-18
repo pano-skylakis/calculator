@@ -18,7 +18,6 @@ let displayEntries = document.getElementById('displayEntries')
 
 // -CSS-
 // remove CE button (confusing unless entries/temp has own display)
-// change input direction from left>right to right<left
 // rounded edges
 // no distinct buttons, only button:hover{color:orange}
 // second input for -entries- (smaller font)

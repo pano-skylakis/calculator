@@ -22,8 +22,8 @@ function buttonValue() {
     let button = event.target.value
     if (!isNaN(button) || button === '.') {
         makeNum(button);
-    } else if (button === 'CE') {
-        clearTemp();
+    // } else if (button === 'CE') {
+    //     clearTemp();
     } else if (button === 'AC') {
         clearAll();
     } else if (button === '=') {
@@ -99,7 +99,6 @@ function clearAll() {
 //pressing '=' with a current total will calculate 
 //with last operator+input
 function evaluateFromTotal() {
-    let button = event.target.value
     entries = entries.split(' ').slice(-2);
     entries.unshift(total);
     entries = entries.join(' ');
